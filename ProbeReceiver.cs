@@ -104,17 +104,6 @@ public sealed class ProbeReceiver : IDisposable
             }
             catch (SocketException sex) when (sex.SocketErrorCode == SocketError.TimedOut)
             {
-                // Before the first packet: never time out – just keep waiting.
-                if (!everReceived)
-                    continue;
-
-                // After at least one packet: exit if idle for too long.
-                if (DateTime.UtcNow - lastPacket > idleTimeout)
-                {
-                    Console.WriteLine($"[{_cfg.ReceiverId}] Idle for {idleTimeout.TotalSeconds:F0} s " +
-                                      $"after {total} probes – stopping.");
-                    break;
-                }
                 continue;
             }
             catch (ObjectDisposedException) { break; }
