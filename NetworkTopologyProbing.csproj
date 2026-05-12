@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AssemblyName>NetworkTopologyProbing</AssemblyName>
+    <RootNamespace>NetworkTopologyProbing</RootNamespace>
+    <LangVersion>12.0</LangVersion>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+
+  <!-- System.Text.Json is bundled in .NET 8; explicit ref ensures latest patch -->
+  <ItemGroup>
+    <PackageReference Include="System.Text.Json" Version="8.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="live_data\" />
+    <Folder Include="output\" />
+  </ItemGroup>
+
+</Project>
